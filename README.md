@@ -17,38 +17,44 @@ A minimum viable product for intelligent low-altitude weather risk avoidance pat
 └── mvp_result.png          # Final result visualization
 ```
 
-## Environment
+## Getting Started
 
-- **Python 3.13+** (Anaconda recommended)
-- **Dependencies**: `numpy`, `matplotlib`
+### Prerequisites
+
+- **Python 3.10+** (Anaconda recommended)
+
+### Installation
 
 ```bash
-pip install numpy matplotlib
+# 1. Clone the repository
+git clone https://github.com/Lovien-GGBond/3dmotion-mvp.git
+cd 3dmotion-mvp
+
+# 2. (Optional) Create a virtual environment
+conda create -n mvp python=3.13
+conda activate mvp
+
+# 3. Install dependencies
+pip install -r requirements.txt
 ```
 
-## Quick Start
-
-Run each module in order:
+### Run
 
 ```bash
-# Step 1: Generate virtual city DEM and meteorological constants
-python mvp_environment.py
-
-# Step 2: Compute wind field and risk index
-python mvp_risk_model.py
-
-# Step 3: Run A* pathfinding (two routes)
-python mvp_astar.py
-
-# Step 4: Generate final comparison visualization
+# One-click: run the final visualization (computes everything automatically)
 python mvp_visualization.py
 ```
 
-Or run only the final visualization (it will compute everything automatically):
+Or run each module step by step:
 
 ```bash
-python mvp_visualization.py
+python mvp_environment.py      # Generate virtual city DEM
+python mvp_risk_model.py       # Compute wind field and risk index
+python mvp_astar.py            # Run A* pathfinding (two routes)
+python mvp_visualization.py    # Generate final comparison visualization
 ```
+
+Output images will be saved to the project root directory.
 
 ## Core Logic
 
